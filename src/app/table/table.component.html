@@ -1,5 +1,5 @@
 <div class="tableBlock table-responsive">
-    <table class="table table-striped">
+    <table class="table table-striped" *ngIf="tableData.length !== 0">
         <thead>
             <tr>
                 <th>Profile</th>
@@ -19,4 +19,5 @@
             </tr>
         </tbody>
     </table>
+    <ng-template *ngIf="tableData.length == 0">No records</ng-template>
 </div>

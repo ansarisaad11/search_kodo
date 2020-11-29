@@ -4,17 +4,23 @@
         <div class="row">
 
             <div class="col-xl-6 col-md-6 col-sm-6">
-                <input type="text" placeholder="Search" [(ngModel)]="searchKey">
+                <input type="text" placeholder="Search" (keyup)="fetchData(searchKey, sortKey)" [(ngModel)]="searchKey">
             </div>
             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
 
                 <label for="sortfield">Sort by : </label>
-                <select id="sortfield" [(ngModel)]="sortKey">
-                    <option value="" disabled>Sort</option>
-                    <option value="name">Name</option>
-                    <option value="dateLastEdited">Date Last Edited</option>
+                <select id="sortfield" [(ngModel)]="sortKey" (change)="fetchData(searchKey, sortKey)">
+                    <option value="sortBy=name&orderBy=asc">Name <small>Ascending</small></option>
+                    <option value="sortBy=name&orderBy=desc">Name <small>Descending</small></option>
+                    <option value="sortBy=name&orderBy=asc">Date Last Edited <small>Ascending</small></option>
+                    <option value="sortBy=dateLastEdited&orderBy=desc">Date Last Edited <small>Descending</small>
+                    </option>
                 </select>
             </div>
+        </div>
+        <div style="margin-top: 20px">
+            Showing : {{pager.startIndex >= 0 ? pager.startIndex : 0}} - {{pager.endIndex >= 0 ? pager.endIndex : 0}} of
+            {{pager.totalItems}} records
         </div>
     </section>
     <section id="cardSection">
@@ -31,4 +37,25 @@
             </div>
 
         </section>
+        <div style="text-align: center;">
+            <div>
+                <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+                    <li [ngClass]="{disabled:pager.currentPage === 1}">
+                        <a (click)="setPage(1)">
+                            <<</a> </li> <li [ngClass]="{disabled:pager.currentPage === 1}">
+                                <a (click)="setPage(pager.currentPage - 1)">
+                                    <</a> </li> <li *ngFor="let page of pager.pages"
+                                        [ngClass]="{active:pager.currentPage === page}">
+                                        <a (click)="setPage(page)">{{page}}</a>
+                    </li>
+                    <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                        <a (click)="setPage(pager.currentPage + 1)">></a>
+                    </li>
+                    <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                        <a (click)="setPage(pager.totalPages)">>></a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
         </div>

@@ -10,6 +10,14 @@ export class ApiService {
 
   getData(searchKey?: string, sortKey?: string): Observable<any> {
     let url: string = "";
+    if (searchKey !== "") {
+      url = `http://localhost:3000/userdata/?search=${searchKey}`;
+    } else if (sortKey !== "") {
+      url = `http://localhost:3000/userdata/?${sortKey}`;
+    } else {
+      url = `http://localhost:3000/userdata/`;
+    }
+    
     return this.http.get(url);
   }
 }

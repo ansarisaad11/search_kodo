@@ -8,21 +8,12 @@ import { CardComponent } from './card/card.component';
 import { TableComponent } from './table/table.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { PaginationService } from "./services/pager.service";
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    CardComponent,
-    TableComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+  declarations: [AppComponent, HomeComponent, CardComponent, TableComponent],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
+  providers: [PaginationService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

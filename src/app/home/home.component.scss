@@ -1,0 +1,39 @@
+.pagination {
+    margin-top: 20px;
+    margin-bottom: 70px;
+
+    li {
+        background: #fff;
+        color: rgb(7, 7, 61);
+        margin: 10px 5px;
+        border: 1px solid #bababa;
+        font-size: 14px;
+        cursor: pointer;
+        border-radius: 5px;
+
+        text-align: center;
+
+        &:hover {
+            background: rgb(184, 184, 219);
+
+        }
+
+        a {
+            padding: 5px;
+            width: 30px;
+        }
+    }
+
+
+
+    .active {
+        background: rgb(7, 7, 61);
+        color: #fff;
+    }
+
+    .disabled {
+        background: grey;
+        color: #fff;
+        cursor: no-drop;
+    }
+}
