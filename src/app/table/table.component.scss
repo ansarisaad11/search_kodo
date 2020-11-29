@@ -1,0 +1,19 @@
+.tableBlock {
+    margin-top: 30px;
+
+    .nameColumn {
+        width: 25%;
+    }
+
+    .descColumn {
+        width: 47%;
+    }
+
+    .imageColumn {
+        width: 10%;
+
+        img {
+            width: 40%;
+        }
+    }
+}

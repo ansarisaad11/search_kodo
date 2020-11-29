@@ -1,1 +1,22 @@
-<p>table works!</p>
+<div class="tableBlock table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Profile</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Last Edited</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of tableData">
+                <td class="imageColumn">
+                    <img class="img-responsive" [src]="item.image" alt="profile image">
+                </td>
+                <td class="nameColumn">{{item.name}}</td>
+                <td class="descColumn">{{item.description}}</td>
+                <td>{{item.dateLastEdited | date: 'medium'}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
