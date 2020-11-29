@@ -1,1 +1,28 @@
-<p>home works!</p>
+<div class="container">
+    <section id="searchActions">
+        <h1>Feed</h1>
+        <div class="row">
+
+            <div class="col-xl-6 col-md-6 col-sm-6">
+                <input type="text" placeholder="Search" [(ngModel)]="searchKey">
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+
+                <label for="sortfield">Sort by : </label>
+                <select id="sortfield" [(ngModel)]="sortKey">
+                    <option value="" disabled>Sort</option>
+                    <option value="name">Name</option>
+                    <option value="dateLastEdited">Date Last Edited</option>
+                </select>
+            </div>
+        </div>
+    </section>
+    <section id="cardSection">
+        <div class="row">
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6" *ngFor="let item of searchData">
+                <app-card [cardData]="item"></app-card>
+            </div>
+            
+        </div>
+        </section>
+        </div>
