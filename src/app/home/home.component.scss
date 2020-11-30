@@ -1,3 +1,31 @@
+.searchitem {
+    input {
+        border-radius: 5px 0 0 5px;
+        padding: 5px;
+        margin-top: 10px;
+        outline: none;
+        border: 1px solid #bababa;
+    }
+
+    button {
+        background: rgb(7, 7, 61);
+        color: #fff;
+        border: 1px solid #000;
+        border-radius: 0 5px 5px 0;
+        padding: 5px;
+    }
+}
+
+.sortitems {
+    select {
+        margin-top: 10px;
+        border-radius: 5px;
+        padding: 5px;
+        outline: none;
+        border: 1px solid #bababa;
+    }
+}
+
 .pagination {
     margin-top: 20px;
     margin-bottom: 70px;
