@@ -1,8 +1,7 @@
 language: node_js
 node_js:
   - "9"
-dist: kodo
-sudo: required
+dist: trusty
 branches:
   only:
   - main
@@ -10,3 +9,11 @@ before_script:
   - npm install -g @angular/cli
 script:
 - ng build --prod --base-href https://ansarisaad11.github.io/search_kodo/
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  local_dir: dist/kodo
+  on:
+    branch: main
